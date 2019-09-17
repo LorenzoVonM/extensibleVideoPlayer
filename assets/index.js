@@ -1,11 +1,17 @@
 import MediaPlayer from "./MediaPlayer.js"
 import AutoPlay from "./plugins/AutoPlay.js"
+import AutoPause from "./plugins/AutoPause.js"
 
 const video = document.querySelector('video');
-let conObj = { el: video, 
+
+//objeto de configuracion, con el video y los plugins
+let conObj = { 
+    el: video, 
     plugins: [
-        //new AutoPlay()
+        new AutoPlay(),
+        new AutoPause()
     ] };
+    
 const player =new  MediaPlayer(conObj);
 
 const buttonPlay = document.querySelector('#btnPlayPause');

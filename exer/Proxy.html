@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/levenshtein/1.0.5/levenshtein.js"></script>
+</head>
+<body>
+    <script>
+    
+
+        //vamos a usar Proxy para interceptar la lectura de propiedades de un objeto, se pueden usar trampas
+        // para interceptar la llamada anqyes que llege al objeto y manipularla con logica propia
+
+        const target = {
+            red: 'rojo',
+            green: 'verde',
+            purple: 'morado',
+        }
+
+        const handler = {
+            get(obj, prop) {
+                if ( prop in obj){
+                    return obj[prop];
+                }
+
+                const suggestion = Object.keys(obj).find((key) =>{
+                    return !Levenshtein(key, prop) <= 3
+                })
+
+                if (suggestion){
+                    console.log(`Quisiste decir ${suggestion}?`);
+                }
+
+                return obj[prop];
+            }
+        }
+
+    const p = new Proxy(target, handler);
+    
+    </script>
+    
+</body>
+</html>
