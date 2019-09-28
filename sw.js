@@ -1,49 +1,49 @@
-// const VER = 'v1'
+const VER = 'v1'
 
-// self.addEventListener('install', event => {
-//     event.waitUntil(precache());
-// });
+self.addEventListener('install', event => {
+    event.waitUntil(precache());
+});
 
-// self.addEventListener('fetch', event => {
-//     const request = event.request;
-//     // just gets
-//     if (request.method !== 'GET') {
-//         return;
-//     }
+self.addEventListener('fetch', event => {
+    const request = event.request;
+    // just gets
+    if (request.method !== 'GET') {
+        return;
+    }
 
-//     // buscar en cache
-//     event.respondWith(cachedResponse(request));
+    // buscar en cache
+    event.respondWith(cachedResponse(request));
 
-//     //actualizar el cache
+    //actualizar el cache
 
-//     event.waitUntil(updateCache(request));
+    event.waitUntil(updateCache(request));
 
-// });
+});
 
-// async function precache () {
-//     const cache = await caches.open(VER);
-//     return cache.addAll([
-//         '/',
-//         '/index.html',
-//         '/assets/index.js',
-//         '/assets/MediaPlayer.js',
-//         '/assets/plugins/AutoPlay.js',
-//         '/assets/plugins/AutoPause.js',
-//         '/assets/index.css',
-//         '/assets/historyMakers.mp4',
-//     ]);
-// }
+async function precache () {
+    const cache = await caches.open(VER);
+    return cache.addAll([
+        // '/',
+        // '/index.html',
+        // '/assets/index.js',
+        // '/assets/MediaPlayer.js',
+        // '/assets/plugins/AutoPlay.js',
+        // '/assets/plugins/AutoPause.js',
+        // '/assets/index.css',
+        // '/assets/historyMakers.mp4',
+    ]);
+}
 
-// async function cachedResponse (request) {
-//     const cache = await caches.open(VER);
-//     const response = await cache.match(request)
+async function cachedResponse (request) {
+    const cache = await caches.open(VER);
+    const response = await cache.match(request)
 
-//     return response || fetch(request);
-// }
+    return response || fetch(request);
+}
 
-// async function updateCache(request) {
-//     const cache = await caches.open(VER);
-//     const response = await fetch(request);
+async function updateCache(request) {
+    const cache = await caches.open(VER);
+    const response = await fetch(request);
     
-//     return cache.put(request, response);
-// }
+    return cache.put(request, response);
+}
