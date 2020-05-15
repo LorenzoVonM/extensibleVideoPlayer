@@ -16,5 +16,5 @@ Technologies used:
 
 <img src="https://github.com/LorenzoVonM/extensibleVideoPlayer/blob/master/assets/desc/videoPlayer.png" width="100%" class="center">
 </br>
-<img src="https://github.com/LorenzoVonM/extensibleVideoPlayer/blob/master/assets/desc/videoPlayer.png" width="100%" class="center">
+<img src="https://github.com/LorenzoVonM/extensibleVideoPlayer/blob/master/assets/desc/Ads.png" width="100%" class="center">
 </br>
